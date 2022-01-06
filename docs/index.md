@@ -44,18 +44,14 @@ Una vez que se ha creado el *ground truth* se puede comprobar visualmente el des
 La aplicación muestra dos imágenes:
 - Detección -> El color de los cuadraditos indica:
     - Rojo: Minucia de terminación correctamente detectada, según el *ground truth*
-    - Verde: Minucia de terminación correctamente detectada, según el *ground truth*
+    - Verde: Minucia de bifurcación correctamente detectada, según el *ground truth*
     - Violeta: Minucia de terminación erróneamente detectada, según el *ground truth*
-    - Azul: Minucia de terminación erróneamente detectada, según el *ground truth*
+    - Azul: Minucia de bifurcación erróneamente detectada, según el *ground truth*
 - *Ground truth* -> El color de los cuadraditos indica:
-    - Rojo: Minucia de terminación correctamente detectada, según el *ground truth*
-    - Verde: Minucia de terminación correctamente detectada, según el *ground truth*
-    - Violeta: Minucia de terminación erróneamente detectada, según el *ground truth*
-    - Azul: Minucia de terminación erróneamente detectada, según el *ground truth*
-
-
-
-
+    - Rojo: Minucia de terminación del *ground truth* que se ha detectado correctamente
+    - Verde: Minucia de bifurcación del *ground truth* que se ha detectado correctamente
+    - Violeta: Minucia de terminación del *ground truth* que no se ha detectado
+    - Azul: Minucia de bifurcación del *ground truth* que no se ha detectado
 
 ## Resultados
 
