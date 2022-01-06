@@ -17,7 +17,7 @@ Esta aplicación se crea para la asignatura de *Biometría* del Máster de Visi�
 
 ## Diseño de la aplicación
 
-La clasificación se realiza con técnicas clásicas de visión artificial: Filtros, erosiones, dilataciones, cierres, aperturas, umbralizado,... La aplicación genera varias imágenes donde se muestran diversos procesos que se han ido realizando sobre la imagen hasta obtener el resultado. La ventana *Original con resultado* muestra el resultado final. La sección de la imagen que se tiene en cuenta para la generación de las minucias aparece delimitada por un cuadro rojo. En pequeños cuadros rojos se muestran las minucias de terminación, mientras que las de bifurcación se muestran con pequeños cuadros verdes.
+La clasificación se realiza con técnicas clásicas de visión artificial: Filtros, erosiones, dilataciones, cierres, aperturas, umbralizado,... La aplicación genera una imagen donde se muestra el resultado de la detección. La sección de la imagen que se tiene en cuenta para la generación de las minucias aparece delimitada por un cuadro naranja. En pequeños cuadros rojos se muestran las minucias de terminación, mientras que las de bifurcación se muestran con pequeños cuadros verdes.
 
 
 
@@ -35,7 +35,7 @@ En el repositorio se guardan los ficheros fuentes y las imágenes, por lo que es
 
 Una vez realizada la detección de un huella, si se quiere lanzar la aplicación que crea el *ground truth*, hay que utilizar el siguiente comando: `python FingerprintGroundTruth.py [-i INPUT] [-e]`. Donde, de nuevo, *INPUT* es la ruta de la imagen. Si no se utiliza parámetro *-i INPUT* la detección se realiza con la imagen por defecto. Además, con el parámetro *-e* es posible editar un *ground truth* creado previamente. 
 
-La aplicación genera el mismo cuadro sobre el que indicar las minucias que en el caso de la detección. Pulsando con el botón izquierdo del ratón dentro de este cuadro, se crean las minucias de terminación. Las de bifurcación se crean pulsando con el botón central del ratón. Los datos se guardan pulsando la tecla *s*.
+La aplicación genera el mismo cuadro naranja sobre el que indicar las minucias. Pulsando con el botón izquierdo del ratón dentro de este cuadro, se crean las minucias de terminación. Las de bifurcación se crean pulsando con el botón central del ratón. Los datos se guardan pulsando la tecla *s*.
 
 Para borrar minucias, hay que entrar al modo de borrado, pulsando la tecla *d*. En este modo, pulsando sobre la minucia, ésta desaparece. Para salir del modo de borrado, hay que volver a pulsar la tecla *d*.
 
@@ -52,6 +52,8 @@ La aplicación muestra dos imágenes:
     - Verde: Minucia de bifurcación del *ground truth* que se ha detectado correctamente
     - Violeta: Minucia de terminación del *ground truth* que no se ha detectado
     - Azul: Minucia de bifurcación del *ground truth* que no se ha detectado
+
+NOTA: Si se ha detectado una minucia, pero no coincide con el tipo, se la considera como válida.
 
 ## Resultados
 
