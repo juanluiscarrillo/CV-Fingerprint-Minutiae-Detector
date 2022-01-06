@@ -35,7 +35,7 @@ En el repositorio se guardan los ficheros fuentes y las imágenes, por lo que es
 3. Creación de un entorno *venv*: `python3 -m venv ./venv`
 4. Activación del entorno: `source ./venv/bin/activate`
 5. Instalación de dependencias: `pip3 install -r requirements.txt` 
-6. Detección de las minucias: `python Fingerprint.py *img_file*`
+6. Detección de las minucias: `python Fingerprint.py imgage_file`. Siendo *image_file* la ruta del fichero que contiene la imagen de la huella que se quiere detectar. NOTA: Por defecto se detecta una de las huellas que acompañan al proyecto.
 
 
 
