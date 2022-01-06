@@ -31,15 +31,27 @@ En el repositorio se guardan los ficheros fuentes y las imágenes, por lo que es
 3. Creación de un entorno *venv*: `python3 -m venv ./venv`
 4. Activación del entorno: `source ./venv/bin/activate`
 5. Instalación de dependencias: `pip3 install -r requirements.txt` 
-6. Detección de las minucias: `python Fingerprint.py [-i INPUT] [-e]`. Siendo *image_file* la ruta del fichero que contiene la imagen de la huella que se quiere detectar. NOTA: Si no indica ningún parámetro en la llamada, por defecto se detecta una de las huellas que acompañan al proyecto.
+6. Detección de las minucias: `python Fingerprint.py [-i INPUT]`. Siendo *INPUT* la ruta del fichero que contiene la imagen de la huella que se quiere detectar. Si no indica ningún parámetro en la llamada, por defecto se detecta una de las huellas que acompañan al proyecto.
 
-Una vez realizada la detección de un huella, si se quiere lanzar la aplicación que crea el *ground truth* hay que utilizar el siguiente comando: `python FingerprintGroundTruth.py -i image_file`. Donde, de nuevo, *image_file* es la ruta de la imagen. Si no se indica ningún parámetro se realiza con la imagen por defecto. Además, es posible editar un *ground truth* creado previamente. Para ello hay que utilizar el siguiente comando: `python FingerprintGroundTruth.py -i image_file -e`. 
+Una vez realizada la detección de un huella, si se quiere lanzar la aplicación que crea el *ground truth*, hay que utilizar el siguiente comando: `python FingerprintGroundTruth.py [-i INPUT] [-e]`. Donde, de nuevo, *INPUT* es la ruta de la imagen. Si no se utiliza parámetro *-i INPUT* la detección se realiza con la imagen por defecto. Además, con el parámetro *-e* es posible editar un *ground truth* creado previamente. 
 
-La aplicación genera el mismo cuadro sobre el que indicar las minucias. Pulsando con el botón izquierdo del ratón se crean las minucias de terminación. Las de bifurcación se crean pulsando con el botón central del ratón. Los datos se guardan pulsando la tecla *s*.
+La aplicación genera el mismo cuadro sobre el que indicar las minucias que en el caso de la detección. Pulsando con el botón izquierdo del ratón dentro de este cuadro, se crean las minucias de terminación. Las de bifurcación se crean pulsando con el botón central del ratón. Los datos se guardan pulsando la tecla *s*.
 
-Para borrar minucias, hay que entrar al modo de borrado pulsando la tecla *d*. En este modo, pulsando sobre la minucia, ésta desaparece. Para salir del modo de borrado hay que volver a pulsar la tecla *d*.
+Para borrar minucias, hay que entrar al modo de borrado, pulsando la tecla *d*. En este modo, pulsando sobre la minucia, ésta desaparece. Para salir del modo de borrado, hay que volver a pulsar la tecla *d*.
 
-Una vez que se ha creado el *ground truth* se puede comprobar visualmente el desempeño de la apliación. Para ello, hay que utilizar el siguiente comando: `FingerprintEvaluation.py -i 
+Una vez que se ha creado el *ground truth* se puede comprobar visualmente el desempeño de la apliación. Para ello, hay que utilizar el siguiente comando: `python FingerprintEvaluation.py [-i INPUT] [-d DIST]`. Lo comentado anteriormente también se aplica al parámetro *-i INPUT*. Con el parámetro *-d DIST* se indica la distancia máxima admisible en píxeles para considerar válida la minucia detectada frente a la del *ground truth*. Si no se utiliza este parámetro, por defecto, toma el valor de 8 píxeles.
+
+La aplicación muestra dos imágenes:
+- Detección -> El color de los cuadraditos indica:
+    - Rojo: Minucia de terminación correctamente detectada, según el *ground truth*
+    - Verde: Minucia de terminación correctamente detectada, según el *ground truth*
+    - Violeta: Minucia de terminación erróneamente detectada, según el *ground truth*
+    - Azul: Minucia de terminación erróneamente detectada, según el *ground truth*
+- *Ground truth* -> El color de los cuadraditos indica:
+    - Rojo: Minucia de terminación correctamente detectada, según el *ground truth*
+    - Verde: Minucia de terminación correctamente detectada, según el *ground truth*
+    - Violeta: Minucia de terminación erróneamente detectada, según el *ground truth*
+    - Azul: Minucia de terminación erróneamente detectada, según el *ground truth*
 
 
 
