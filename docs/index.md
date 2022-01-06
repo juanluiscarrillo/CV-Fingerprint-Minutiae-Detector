@@ -17,12 +17,8 @@ Esta aplicación se crea para la asignatura de *Biometría* del Máster de Visi�
 
 ## Diseño de la aplicación
 
-La clasificación se realiza con técnicas clásicas de visión artificial: Filtros, erosiones, dilataciones, cierres, aperturas, umbralizado,... 
+La clasificación se realiza con técnicas clásicas de visión artificial: Filtros, erosiones, dilataciones, cierres, aperturas, umbralizado,... La aplicación genera varias imágenes donde se muestran diversos procesos que se han ido realizando sobre la imagen hasta obtener el resultado. La ventana *Original con resultado* muestra el resultado final. La sección de la imagen que se tiene en cuenta para la generación de las minucias aparece delimitada por un cuadro rojo. En pequeños cuadros rojos se muestran las minucias de terminación, mientras que las de bifurcación se muestran con pequeños cuadros verdes.
 
-
-## Resultados
-
-Los resultados presentan una gran variación en función de la calidad de la imagen de la huella. 
 
 
 ### Utilización de la aplicación
@@ -35,10 +31,20 @@ En el repositorio se guardan los ficheros fuentes y las imágenes, por lo que es
 3. Creación de un entorno *venv*: `python3 -m venv ./venv`
 4. Activación del entorno: `source ./venv/bin/activate`
 5. Instalación de dependencias: `pip3 install -r requirements.txt` 
-6. Detección de las minucias: `python Fingerprint.py imgage_file`. Siendo *image_file* la ruta del fichero que contiene la imagen de la huella que se quiere detectar. NOTA: Por defecto se detecta una de las huellas que acompañan al proyecto.
+6. Detección de las minucias: `python Fingerprint.py [-i INPUT] [-e]`. Siendo *image_file* la ruta del fichero que contiene la imagen de la huella que se quiere detectar. NOTA: Si no indica ningún parámetro en la llamada, por defecto se detecta una de las huellas que acompañan al proyecto.
+
+Una vez realizada la detección de un huella, si se quiere lanzar la aplicación que crea el *ground truth* hay que utilizar el siguiente comando: `python FingerprintGroundTruth.py -i image_file`. Donde, de nuevo, *image_file* es la ruta de la imagen. Si no se indica ningún parámetro se realiza con la imagen por defecto. Además, es posible editar un *ground truth* creado previamente. Para ello hay que utilizar el siguiente comando: `python FingerprintGroundTruth.py -i image_file -e`. 
+
+La aplicación genera el mismo cuadro sobre el que indicar las minucias. Pulsando con el botón izquierdo del ratón se crean las minucias de terminación. Las de bifurcación se crean pulsando con el botón central del ratón. Los datos se guardan pulsando la tecla *s*.
+
+Para borrar minucias, hay que entrar al modo de borrado pulsando la tecla *d*. En este modo, pulsando sobre la minucia, ésta desaparece. Para salir del modo de borrado hay que volver a pulsar la tecla *d*.
+
+Una vez que se ha creado el *ground truth* se puede comprobar visualmente el desempeño de la apliación. Para ello, hay que utilizar el siguiente comando: `FingerprintEvaluation.py -i 
 
 
 
-También, es posible valorar la tasa de acierto de la aplicación sobre el conjunto de imágenes de test. Para ello habría que ejecutar: `python MelanomaTrainer.py`. 
 
 
+## Resultados
+
+Los resultados presentan una gran variación en función de la calidad de la imagen de la huella. 
